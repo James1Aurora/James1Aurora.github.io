@@ -19,7 +19,7 @@
     font-family:'Montserrat', Tahoma, Geneva, Verdana, sans-serif; 
     font-weight:bold;
     position: fixed;
-    overflow: hidden;
+
     
   }
   .navbar-toggler-icon {
@@ -72,7 +72,7 @@
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     .bg-image {
         background-attachment: fixed; /* Keep background fixed while scrolling */
     }
