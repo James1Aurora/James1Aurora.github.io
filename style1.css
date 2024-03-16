@@ -22,6 +22,29 @@
     overflow: hidden;
     
   }
+  .navbar-toggler-icon {
+    color: white; /* Warna ikon tombol navbar */
+  }
+  
+  .navbar-toggler {
+    border-color: white; /* Warna border tombol navbar */
+  }
+  
+  .navbar-nav .nav-link {
+    color: white !important; /* Warna teks link navbar */
+  }
+  
+  .btn-custom {
+    background-color: black; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    border-color: white; /* Warna border tombol */
+  }
+  
+  .btn-custom:hover {
+    background-color: white; /* Warna latar belakang tombol saat dihover */
+    color: black; /* Warna teks tombol saat dihover */
+  }
+  
 
   .navbar-scrolled {
     background-color: black !important; /* Warna latar belakang hitam */
