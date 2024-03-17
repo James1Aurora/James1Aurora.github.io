@@ -20,12 +20,24 @@
 
 
       </style>
-      
-      
-      
-      </head>
+        <script>
+      function disableClick(){
+        document.onclick=function(event){
+          if (event.button == 2) {
+            alert('Right Click Message');
+            return false;
+          }
+        }
+      }
+    </script>
 
-      <body>
+        
+      
+      
+      
+</head>
+
+      <body onLoad="disableClick()">
         <!-- navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
           <div class="container">
