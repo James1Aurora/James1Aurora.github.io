@@ -16,12 +16,119 @@
       <style>
         nav{
           background-color: black;
-
-          
         }
 
+        body {
+          background: linear-gradient(135deg, #000000, #1a1a1a);
+          color: #ffffff;
+          font-family: 'Raleway', sans-serif;
+        }
 
+        .jumbotron {
+          background: linear-gradient(135deg, rgba(255,107,107,0.8), rgba(78,205,196,0.6)), url('img/background.png');
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+          min-height: 60vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
+        .section-header {
+          position: relative;
+          margin-bottom: 3rem;
+        }
+
+        .section-header::after {
+          content: '';
+          display: block;
+          width: 80px;
+          height: 3px;
+          background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+          margin: 1rem auto;
+          border-radius: 2px;
+        }
+
+        .project-card {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 15px;
+          transition: all 0.3s ease;
+          overflow: hidden;
+        }
+
+        .project-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+          border-color: #FF6B6B;
+        }
+
+        .project-card video {
+          transition: transform 0.3s ease;
+        }
+
+        .project-card:hover video {
+          transform: scale(1.05);
+        }
+
+        .category-filter {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 25px;
+          margin: 0.5rem;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        .category-filter:hover, .category-filter.active {
+          transform: scale(1.05);
+          box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .stats-card {
+          background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+          color: white;
+          border-radius: 15px;
+          padding: 2rem;
+          text-align: center;
+          margin: 1rem 0;
+        }
+
+        .fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .professional-cta {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border: none;
+          border-radius: 50px;
+          padding: 1rem 2rem;
+          color: white;
+          text-decoration: none;
+          display: inline-block;
+          transition: all 0.3s ease;
+          font-weight: 600;
+        }
+
+        .professional-cta:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+          color: white;
+          text-decoration: none;
+        }
       </style>
         <script>
       function disableClick(){
@@ -54,9 +161,6 @@
                   <a class="nav-link" href="index.html#home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html#aboutme">About</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="#">Projects</a>
                 </li>
                 <li class="nav-item">
@@ -68,167 +172,370 @@
         </nav>
         <!-- akhir navbar-->
 
-        <!-- gambar footer-->
-            <section class="jumbotron" id="gambarfooter">
+        <!-- Hero Section -->
+        <section class="jumbotron" id="hero">
+          <div class="container text-center text-white">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <h1 class="display-3 mb-4 fade-in" style="font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+                  Film Review Portfolio
+                </h1>
+                <p class="lead mb-4 fade-in" style="font-size: 1.3rem; color: #e0e0e0;">
+                  Exploring cinematic storytelling through comprehensive analysis and creative content
+                </p>
+                <div class="fade-in">
+                  <a href="#projects" class="professional-cta">
+                    <i class="fas fa-play mr-2"></i>Explore Reviews
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            </section>
-        <!-- akhir gambar footer-->
 
 
+<!-- Projects Section -->
+<section id="projects" style="background: linear-gradient(135deg, #000000, #1a1a1a); padding: 5% 0;">
+  <div class="container text-light">
+    
+    <!-- Section Header -->
+    <div class="row text-center mb-5">
+      <div class="col">
+        <h1 class="section-header fade-in" style="font-family: 'Montserrat';">Complete Film Review Collection</h1>
+        <p class="lead fade-in" style="color: #e0e0e0; max-width: 600px; margin: 0 auto;">
+          Exploring the art of storytelling through comprehensive film analysis and creative content creation
+        </p>
+      </div>
+    </div>
 
-<!-- projects-->
-
-<section id="projects" style="background-color: black; padding-bottom:10%;padding-top:5%">
-  <div class="container text-light text-center">
-    <div class="row text-center mb-4">
-      <div class="col overflow-hidden text-light">
-        <h1 class="display-4 " style="font-family: 'Montserrat'; text-align: center;">Complete Film Review Collection</h1>
-        <h2 style="font-family: 'Montserrat'; text-align: center;">Cinema Analysis & Creative Content</h2>
-        <h2 class="display-4" style="text-align: center; padding-bottom:3%">________________</h2>
-        <p class="lead">Exploring the art of storytelling through comprehensive film analysis</p>
+    <!-- Statistics Section -->
+    <div class="row mb-5 fade-in">
+      <div class="col-md-3 col-6 mb-3">
+        <div class="stats-card">
+          <h2 class="mb-2">50+</h2>
+          <p class="mb-0">Film Reviews</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="stats-card" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+          <h2 class="mb-2">500+</h2>
+          <p class="mb-0">Hours of Content</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="stats-card" style="background: linear-gradient(135deg, #A8E6CF, #88D8C0);">
+          <h2 class="mb-2">10K+</h2>
+          <p class="mb-0">Views</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="stats-card" style="background: linear-gradient(135deg, #FFA07A, #FF6B6B);">
+          <h2 class="mb-2">3</h2>
+          <p class="mb-0">Years Experience</p>
+        </div>
       </div>
     </div>
 
     <!-- YouTube Integration -->
-    <div class="row justify-content-center mb-5">
-      <div class="col-md-8">
-        <div class="card bg-dark border border-danger">
-          <div class="card-body text-center">
-            <i class="fab fa-youtube fa-3x text-danger mb-3"></i>
-            <h5 class="card-title">Full Playlist Available on YouTube</h5>
-            <p class="card-text">Watch all my film reviews and creative content in one place</p>
-            <a href="https://www.youtube.com/watch?v=fDhqkCOkITE&list=PLhdTt68ddXT48eVd_A7K7T2d5pLdgGjhr" 
-               target="_blank" class="btn btn-danger">
-              <i class="fab fa-youtube mr-2"></i>Watch Full Playlist
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  <div class="row justify-content-center">
-
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (1).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-          <div class="card-body">
-            <p class="card-text text-light">Mao Anying on Chinese Drama Going Across The Yalu River (2020).</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (2).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-          <div class="card-body">
-            <p class="card-text text-light">Julius Robert Oppenheimer film 2023 directed by Christopher Nolan.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (3).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-          <div class="card-body">
-            <p class="card-text text-light">Band of Brothers (2001) by Steven Spielberg.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (4).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-          <div class="card-body">
-            <p class="card-text text-light">Breaking Bad The Series (2008-2013).</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (5).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-          <div class="card-body">
-            <p class="card-text text-light">The Last of Us (2023) all infected.</p>
-          </div>
-        </div>
-      </div>
-        <div class="col-md-4 mb-3">
-          <div class="card bg-transparent border border-white">
-            <video src="img/vid (6).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-            <div class="card-body">
-              <p class="card-text text-light">Film Upside Down (2012).</p>
+    <div class="row justify-content-center mb-5 fade-in">
+      <div class="col-md-10">
+        <div class="project-card text-center p-4">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <i class="fab fa-youtube fa-4x text-danger mb-3"></i>
+              <h4 class="mb-3">Complete Playlist on YouTube</h4>
+              <p class="text-light mb-3">
+                Watch all my film reviews and creative content in one curated playlist. 
+                From blockbusters to indie films, explore comprehensive analysis and insights.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <a href="https://www.youtube.com/watch?v=fDhqkCOkITE&list=PLhdTt68ddXT48eVd_A7K7T2d5pLdgGjhr" 
+                 target="_blank" class="professional-cta" style="background: linear-gradient(45deg, #FF0000, #CC0000);">
+                <i class="fab fa-youtube mr-2"></i>Watch Playlist
+              </a>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-3">
-          <div class="card bg-transparent border border-white">
-            <video src="img/vid (7).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-            <div class="card-body">
-              <p class="card-text text-light">The Titanic (1997).</p>
+      </div>
+    </div>
+    <!-- Category Filters -->
+    <div class="row justify-content-center mb-5 fade-in">
+      <div class="col-md-8 text-center">
+        <h4 class="mb-4">Filter by Category</h4>
+        <button class="category-filter active" data-category="all">All Reviews</button>
+        <button class="category-filter" data-category="drama">Drama</button>
+        <button class="category-filter" data-category="action">Action</button>
+        <button class="category-filter" data-category="sci-fi">Sci-Fi</button>
+        <button class="category-filter" data-category="historical">Historical</button>
+      </div>
+    </div>
+
+    <!-- Video Gallery -->
+    <div class="row justify-content-center">
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="historical">
+        <div class="project-card">
+          <video src="img/vid (1).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Going Across The Yalu River</h6>
+            <p class="card-text text-light">Analysis of Mao Anying's character in this compelling Chinese historical drama from 2020.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Historical Drama • 2020</small>
+              <span class="badge badge-secondary">Chinese</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="col-md-4 mb-3">
-          <div class="card bg-transparent border border-white">
-            <video src="img/vid (8).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-            <div class="card-body">
-              <p class="card-text text-light">The Creator (2023).</p>
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="drama">
+        <div class="project-card">
+          <video src="img/vid (2).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Oppenheimer</h6>
+            <p class="card-text text-light">Christopher Nolan's masterpiece exploring the life of J. Robert Oppenheimer and the Manhattan Project.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Biographical Drama • 2023</small>
+              <span class="badge badge-warning">Oscar Winner</span>
             </div>
           </div>
         </div>
-  
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (9).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-          <div class="card-body">
-            <p class="card-text text-light">Start Up (2020).</p>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="historical">
+        <div class="project-card">
+          <video src="img/vid (3).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Band of Brothers</h6>
+            <p class="card-text text-light">Steven Spielberg's acclaimed WWII miniseries showcasing the courage of Easy Company.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">War Drama • 2001</small>
+              <span class="badge badge-success">Emmy Winner</span>
+            </div>
           </div>
         </div>
       </div>
-  
-    <div class="col-md-4 mb-3">
-      <div class="card bg-transparent border border-white">
-        <video src="img/vid (10).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-        <div class="card-body">
-          <p class="card-text text-light">Independence Day (2020).</p>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="drama">
+        <div class="project-card">
+          <video src="img/vid (4).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Breaking Bad</h6>
+            <p class="card-text text-light">The transformation of Walter White in this groundbreaking series that redefined television drama.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Crime Drama • 2008-2013</small>
+              <span class="badge badge-danger">Cult Classic</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card bg-transparent border border-white">
-        <video src="img/vid (11).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-        <div class="card-body">
-          <p class="card-text text-light">Red Dawn (2012).</p>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="action">
+        <div class="project-card">
+          <video src="img/vid (5).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">The Last of Us</h6>
+            <p class="card-text text-light">Post-apocalyptic survival drama exploring the infected creatures and human relationships.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Action Drama • 2023</small>
+              <span class="badge badge-info">Game Adaptation</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card bg-transparent border border-white">
-        <video src="img/vid (12).mp4" class="card-img-top" controls style="object-fit: cover;"></video>
-        <div class="card-body">
-          <p class="card-text text-light">The Mist (2007).</p>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="sci-fi">
+        <div class="project-card">
+          <video src="img/vid (6).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Upside Down</h6>
+            <p class="card-text text-light">A unique sci-fi romance exploring parallel worlds with opposing gravitational forces.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Sci-Fi Romance • 2012</small>
+              <span class="badge badge-light text-dark">Indie</span>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="drama">
+        <div class="project-card">
+          <video src="img/vid (7).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Titanic</h6>
+            <p class="card-text text-light">James Cameron's epic romance disaster film exploring love across social classes.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Romance Drama • 1997</small>
+              <span class="badge badge-warning">11 Oscars</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="sci-fi">
+        <div class="project-card">
+          <video src="img/vid (8).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">The Creator</h6>
+            <p class="card-text text-light">A visually stunning exploration of AI and humanity in a war-torn future.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Sci-Fi Thriller • 2023</small>
+              <span class="badge badge-primary">Visual Effects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="drama">
+        <div class="project-card">
+          <video src="img/vid (9).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Start Up</h6>
+            <p class="card-text text-light">Korean drama exploring entrepreneurship, technology, and relationships in startup culture.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Business Drama • 2020</small>
+              <span class="badge badge-secondary">K-Drama</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="action">
+        <div class="project-card">
+          <video src="img/vid (10).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Independence Day</h6>
+            <p class="card-text text-light">Roland Emmerich's blockbuster alien invasion film with spectacular destruction sequences.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Sci-Fi Action • 1996</small>
+              <span class="badge badge-success">Box Office Hit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="action">
+        <div class="project-card">
+          <video src="img/vid (11).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">Red Dawn</h6>
+            <p class="card-text text-light">A group of teenagers fighting back against foreign invasion in this action thriller remake.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Action Thriller • 2012</small>
+              <span class="badge badge-dark">Remake</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="sci-fi">
+        <div class="project-card">
+          <video src="img/vid (12).mp4" class="card-img-top" controls style="object-fit: cover; height: 250px;"></video>
+          <div class="card-body p-4">
+            <h6 class="card-title" style="color: #FF6B6B;">The Mist</h6>
+            <p class="card-text text-light">Stephen King adaptation exploring psychological horror and human nature under extreme circumstances.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Horror Thriller • 2007</small>
+              <span class="badge badge-danger">Stephen King</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-
+    <!-- Professional Call-to-Action Section -->
+    <div class="row justify-content-center mt-5 fade-in">
+      <div class="col-md-10">
+        <div class="project-card text-center p-5">
+          <h3 class="mb-4" style="color: #FF6B6B;">Want to See More?</h3>
+          <p class="lead mb-4" style="color: #e0e0e0;">
+            Explore my complete portfolio of film analysis, behind-the-scenes content, 
+            and creative projects across all social media platforms.
+          </p>
+          <div class="row justify-content-center">
+            <div class="col-md-6 mb-3">
+              <a href="https://linktr.ee/jamesaurora" target="_blank" class="professional-cta w-100 d-block">
+                <i class="fas fa-external-link-alt mr-2"></i>View Complete Portfolio
+              </a>
+            </div>
+            <div class="col-md-6 mb-3">
+              <a href="kontak.html" class="professional-cta w-100 d-block" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                <i class="fas fa-envelope mr-2"></i>Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
-
-    <h5 style="padding: 10%; border-radius:20px;"> <a href="https://linktr.ee/jamesaurora" class="btn btn-light btn-custom"> Take a look at my Social Media to show you full projects. You can visit my Linktree here </a></h5>
-
-
-
 </section>
 
 
 <!-- akhir projects -->
 
-
-        <footer class="footer" style="background-color: black; padding:3%">
-          <div class="container text-center text-light" style="font-family:'Raleway', 'Arial Narrow', Arial, sans-serif; font-weight:bold;">
-            <h4>Akbar Permana</h4>
-            <p>West Java, Indonesia</p>
-            <p>
-              <a href="mailto:akbartampan03@gmail.com">Email: akbartampan03@gmail.com</a>
-            </p>
-          </div>
+        <!-- Professional Footer -->
+        <footer style="background: linear-gradient(135deg, #000000, #1a1a1a); padding: 3% 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                        <h4 style="color: #FF6B6B; font-family: 'Raleway'; font-weight: bold;">James Aurora</h4>
+                        <p style="color: #e0e0e0; margin: 0;">Software Engineer & Content Creator</p>
+                        <p style="color: #4ECDC4; margin: 0;">
+                            <i class="fas fa-map-marker-alt mr-2"></i>West Java, Indonesia
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-right">
+                        <div class="mb-3">
+                            <a href="https://www.linkedin.com/in/akbareup/" target="_blank" class="text-white mr-3" style="font-size: 1.5rem;">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:akbartampan03@gmail.com" class="text-white mr-3" style="font-size: 1.5rem;">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://linktr.ee/jamesaurora" target="_blank" class="text-white" style="font-size: 1.5rem;">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                        <p style="color: #888; margin: 0; font-size: 0.9rem;">
+                            © 2025 James Aurora. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="row mt-4 pt-4" style="border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div class="col-md-3 col-6 text-center mb-3">
+                        <div style="color: #FF6B6B;">
+                            <i class="fas fa-video fa-2x mb-2"></i>
+                            <h5 style="color: white; margin: 0;">50+</h5>
+                            <small style="color: #888;">Film Reviews</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center mb-3">
+                        <div style="color: #4ECDC4;">
+                            <i class="fas fa-code fa-2x mb-2"></i>
+                            <h5 style="color: white; margin: 0;">20+</h5>
+                            <small style="color: #888;">Projects</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center mb-3">
+                        <div style="color: #A8E6CF;">
+                            <i class="fas fa-eye fa-2x mb-2"></i>
+                            <h5 style="color: white; margin: 0;">10K+</h5>
+                            <small style="color: #888;">Views</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center mb-3">
+                        <div style="color: #FFA07A;">
+                            <i class="fas fa-calendar fa-2x mb-2"></i>
+                            <h5 style="color: white; margin: 0;">3+</h5>
+                            <small style="color: #888;">Years</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
 
         <!-- jQuery dan Bootstrap JS -->
@@ -245,19 +552,86 @@
                 }
             });
 
-            // Tangkap elemen navbar
+            // Navbar scroll effect
             var navbar = document.querySelector('.navbar');
-
-            // Tambahkan event listener untuk event scroll
             window.addEventListener('scroll', function() {
-                // Periksa posisi scroll
                 if (window.scrollY > 50) {
-                    // Jika posisi scroll lebih dari 50px, tambahkan kelas navbar-scrolled
                     navbar.classList.add('navbar-scrolled');
                 } else {
-                    // Jika tidak, hapus kelas navbar-scrolled
                     navbar.classList.remove('navbar-scrolled');
                 }
+            });
+
+            // Project filtering functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const filterButtons = document.querySelectorAll('.category-filter');
+                const projectItems = document.querySelectorAll('.project-item');
+
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Remove active class from all buttons
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        // Add active class to clicked button
+                        this.classList.add('active');
+
+                        const category = this.getAttribute('data-category');
+
+                        projectItems.forEach(item => {
+                            if (category === 'all' || item.getAttribute('data-category') === category) {
+                                item.style.display = 'block';
+                                item.style.animation = 'fadeInUp 0.6s ease forwards';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+
+                // Fade in animation on scroll
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationDelay = '0.2s';
+                            entry.target.classList.add('animate-fade-in');
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all elements with fade-in class
+                const fadeElements = document.querySelectorAll('.fade-in');
+                fadeElements.forEach(el => {
+                    observer.observe(el);
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                });
+
+                // Add animate class to trigger animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    .animate-fade-in {
+                        animation: fadeInUp 0.8s ease forwards !important;
+                    }
+                `;
+                document.head.appendChild(style);
+
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
             });
         </script>
 

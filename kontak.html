@@ -9,19 +9,177 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <!-- Font Awesome Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+      
+      <!-- EmailJS SDK -->
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
       <style>
+        nav{
+          background-color: black;
+        }
 
-          nav{
-            background-color: black;
+        body {
+          background: linear-gradient(135deg, #000000, #1a1a1a);
+          color: #ffffff;
+          font-family: 'Raleway', sans-serif;
+          min-height: 100vh;
+          position: relative;
+          margin: 0;
+          padding: 0;
+        }
 
-            
+        html {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+
+        .section-header {
+          position: relative;
+          margin-bottom: 3rem;
+        }
+
+        .section-header::after {
+          content: '';
+          display: block;
+          width: 80px;
+          height: 3px;
+          background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+          margin: 1rem auto;
+          border-radius: 2px;
+        }
+
+        .contact-card {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 20px;
+          transition: all 0.3s ease;
+          overflow: visible;
+          margin: 30px 0;
+        }
+
+        .contact-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+          border-color: #FF6B6B;
+        }
+
+        .contact-method {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border-radius: 15px;
+          padding: 2rem;
+          text-align: center;
+          margin: 1rem 0;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        .contact-method:hover {
+          transform: scale(1.05);
+          box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .social-card {
+          background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+          border-radius: 20px;
+          padding: 2rem;
+          color: white;
+          text-decoration: none;
+          display: block;
+          transition: all 0.3s ease;
+        }
+
+        .social-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+          color: white;
+          text-decoration: none;
+        }
+
+        .professional-btn {
+          background: linear-gradient(135deg, #4ECDC4, #44A08D);
+          border: none;
+          border-radius: 50px;
+          padding: 1rem 2rem;
+          color: white;
+          text-decoration: none;
+          display: inline-block;
+          transition: all 0.3s ease;
+          font-weight: 600;
+        }
+
+        .professional-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba(78, 205, 196, 0.4);
+          color: white;
+          text-decoration: none;
+        }
+
+        .fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
+        }
 
-          
+        .form-control {
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: 10px;
+          color: white;
+          padding: 1rem;
+          word-wrap: break-word;
+          overflow: visible;
+          box-sizing: border-box;
+        }
+
+        .form-control:focus {
+          background: rgba(255, 255, 255, 0.15);
+          border-color: #4ECDC4;
+          color: white;
+          box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+        }
+
+        .form-control::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-label {
+          color: #4ECDC4;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+
+        .hero-section {
+          min-height: 70vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          z-index: 1;
+        }
+
+        .contact-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
       </style>
 
           <script>
@@ -70,15 +228,18 @@
             z-index: 0;
             top:0;
             left: 0;
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
+            min-height: 100vh;
         }
 
         @media only screen and (max-width: 768px) {
             /* Responsiveness for devices with max-width of 768px (e.g., tablets and mobile phones) */
             #vanta {
-                height: 500px; /* Set a fixed height for smaller screens */
+                position: fixed;
+                height: 100vh;
+                min-height: 100vh;
             }
         }
     </style>
@@ -98,9 +259,6 @@
                     <a class="nav-link" href="index.html#home">Home <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="index.html#aboutme">About</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="project_akbar.html">Projects</a>
                   </li>
                   <li class="nav-item">
@@ -115,58 +273,148 @@
 
 
 
-    <!-- Linkedin-->
-    <section style="background-color: black; padding: 10%;">
-        <div class="container text-light">
-          <div class="row text-center mb-1">
-            <div class="col overflow-hidden text-light">
-              <h1 class="display-4" style="font-family: 'Montserrat'; text-align: center;">Let's Connect</h1>
-              <h2 class="display-4" style="text-align: center; padding-bottom: 5%;">________________</h2>
-              <a href="https://www.linkedin.com/in/akbareup/"><img src="img/linkedin.jpg" alt="Linkedin Logo" style="border-radius: 6px; max-width: 98%; width: 550px;"></a>
-              <p style="font-family: 'Montserrat'; text-align: center; padding-top: 10px;">Check out my Linkedin <a href="https://www.linkedin.com/in/akbareup/" style="color: white;">@Akbar Permana</a></p>
+        <!-- Professional Hero Section -->
+        <section class="hero-section">
+          <div class="container text-center text-white">
+            <div class="row justify-content-center">
+              <div class="col-lg-8 fade-in">
+                <i class="fas fa-comments contact-icon"></i>
+                <h1 class="display-3 mb-4" style="font-weight: bold; color: #ffffff;">
+                  Let's Connect
+                </h1>
+                <p class="lead mb-5" style="font-size: 1.3rem; color: #e0e0e0;">
+                  Ready to collaborate? Let's discuss your ideas and create something amazing together.
+                </p>
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <div class="contact-method">
+                      <i class="fas fa-envelope fa-2x mb-3"></i>
+                      <h5>Email</h5>
+                      <p>akbartampan03@gmail.com</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="contact-method" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                      <i class="fab fa-linkedin fa-2x mb-3"></i>
+                      <h5>LinkedIn</h5>
+                      <p>@Akbar Permana</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="contact-method" style="background: linear-gradient(135deg, #A8E6CF, #88D8C0);">
+                      <i class="fas fa-link fa-2x mb-3"></i>
+                      <h5>Social Media</h5>
+                      <p>All Platforms</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <h5 style="padding: 10%; border-radius:20px;text-align: center;"> <a href="https://linktr.ee/jamesaurora" class="btn btn-light btn-custom"> Take a look at my Social Media to know more. You can visit my Linktree here </a></h5>
-      </section>
-    <!-- Akhir Linkedin-->
+        </section>
 
 
 
-    <!-- contact -->
-    <section id="contact" style="padding-bottom: 10%; background-color:black; z-index: 1;">
-        <div class="container text-light">
-            <div class="row text-center mb-1">
-                <div class="col overflow-hidden text-light">
-                    <h1 class="display-4" style="color:white; font-family: 'Raleway';font-weight: bold;">
-                        Let's Talk
-                      </h1>
-                      <h2 class="display-4" style="text-align: center; padding-bottom: 5%;">________________</h2>
+    <!-- Professional Contact Form -->
+    <section id="contact" style="padding: 80px 0 100px 0; background: linear-gradient(135deg, #1a1a1a, #000000); min-height: 100vh; position: relative; z-index: 1;">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center fade-in">
+                    <h2 class="section-header" style="color: white; font-family: 'Raleway'; font-weight: bold;">
+                        Send Me a Message
+                    </h2>
+                    <p class="lead" style="color: #e0e0e0;">
+                        Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
+                    </p>
                 </div>
-
-              </div>
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <form>
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email">
-              </div>
-              <div class="mb-3">
-                <label for="pesan" class="pesan">Message</label>
-                <textarea class="form-control" id="pesan" rows="3"></textarea>
-              </div>
-  
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-card p-5 fade-in">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="name" class="form-label">
+                                        <i class="fas fa-user mr-2"></i>Full Name
+                                    </label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your full name" required>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="email" class="form-label">
+                                        <i class="fas fa-envelope mr-2"></i>Email Address
+                                    </label>
+                                    <input type="email" class="form-control" id="email" placeholder="your.email@example.com" required>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="form-label">
+                                    <i class="fas fa-tag mr-2"></i>Subject
+                                </label>
+                                <select class="form-control" id="subject" required>
+                                    <option value="">Choose a subject...</option>
+                                    <option value="Project Collaboration">Project Collaboration</option>
+                                    <option value="Job Opportunity">Job Opportunity</option>
+                                    <option value="Film Review Request">Film Review Request</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label">
+                                    <i class="fas fa-comment mr-2"></i>Message
+                                </label>
+                                <textarea class="form-control" id="message" rows="6" placeholder="Tell me about your project or inquiry..." required></textarea>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="professional-btn" id="submitBtn">
+                                    <i class="fas fa-paper-plane mr-2"></i>Send Message
+                                </button>
+                            </div>
+                            
+                            <div id="formStatus" class="mt-3 text-center" style="display: none;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alternative Contact Methods -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-10">
+                    <div class="row fade-in">
+                        <div class="col-md-4 mb-4">
+                            <a href="https://www.linkedin.com/in/akbareup/" target="_blank" class="social-card">
+                                <div class="text-center">
+                                    <i class="fab fa-linkedin fa-3x mb-3"></i>
+                                    <h4>LinkedIn</h4>
+                                    <p class="mb-0">Connect professionally and view my experience</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <a href="mailto:akbartampan03@gmail.com" class="social-card" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                                <div class="text-center">
+                                    <i class="fas fa-envelope fa-3x mb-3"></i>
+                                    <h4>Direct Email</h4>
+                                    <p class="mb-0">For formal business inquiries</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <a href="https://linktr.ee/jamesaurora" target="_blank" class="social-card" style="background: linear-gradient(135deg, #A8E6CF, #88D8C0);">
+                                <div class="text-center">
+                                    <i class="fas fa-link fa-3x mb-3"></i>
+                                    <h4>Social Hub</h4>
+                                    <p class="mb-0">All my social media platforms</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      </section>
+    </section>
 <!-- akhir contact -->
 
 
@@ -184,30 +432,176 @@
 
 
 
-        <footer class="footer" style="background-color: black; padding-bottom:2%">
-            <div class="container text-center text-light" style="font-family:'Raleway', 'Arial Narrow', Arial, sans-serif; font-weight:bold;">
-                <div class="row text-center mb-1">
-                    <div class="col overflow-hidden text-light">
-                        <h4 >Akbar Permana</h4>
-                        <p>West Java, Indonesia</p>
-                        <p>
-                          <a href="mailto:akbartampan03@gmail.com">Email: akbartampan03@gmail.com</a>
+        <!-- Professional Footer -->
+        <footer style="background: linear-gradient(135deg, #000000, #1a1a1a); padding: 3% 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                        <h4 style="color: #FF6B6B; font-family: 'Raleway'; font-weight: bold;">James Aurora</h4>
+                        <p style="color: #e0e0e0; margin: 0;">Software Engineer & Content Creator</p>
+                        <p style="color: #4ECDC4; margin: 0;">
+                            <i class="fas fa-map-marker-alt mr-2"></i>West Java, Indonesia
                         </p>
-
                     </div>
-
+                    <div class="col-md-6 text-center text-md-right">
+                        <div class="mb-3">
+                            <a href="https://www.linkedin.com/in/akbareup/" target="_blank" class="text-white mr-3" style="font-size: 1.5rem;">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:akbartampan03@gmail.com" class="text-white mr-3" style="font-size: 1.5rem;">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://linktr.ee/jamesaurora" target="_blank" class="text-white" style="font-size: 1.5rem;">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                        <p style="color: #888; margin: 0; font-size: 0.9rem;">
+                            © 2025 James Aurora. All rights reserved.
+                        </p>
+                    </div>
                 </div>
-
+                
+                <!-- Quick Stats -->
+                <div class="row mt-4 pt-4" style="border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div class="col-md-3 col-6 text-center mb-3">
+                        <div style="color: #FF6B6B;">
+                            <i class="fas fa-video fa-2x mb-2"></i>
+                            <h5 style="color: white; margin: 0;">50+</h5>
+                            <small style="color: #888;">Film Reviews</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center mb-3">
+                        <div style="color: #4ECDC4;">
+                            <i class="fas fa-code fa-2x mb-2"></i>
+                            <h5 style="color: white; margin: 0;">20+</h5>
+                            <small style="color: #888;">Projects</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center mb-3">
+                        <div style="color: #A8E6CF;">
+                            <i class="fas fa-eye fa-2x mb-2"></i>
+                            <h5 style="color: white; margin: 0;">10K+</h5>
+                            <small style="color: #888;">Views</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 text-center mb-3">
+                        <div style="color: #FFA07A;">
+                            <i class="fas fa-calendar fa-2x mb-2"></i>
+                            <h5 style="color: white; margin: 0;">3+</h5>
+                            <small style="color: #888;">Years</small>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </footer>
+        </footer>
           <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
-            // Disable F12 key and Ctrl+Shift+I combo
-      document.addEventListener('keydown', event => {
-        if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
-          event.preventDefault();
-        }
-      });
+        // Disable F12 key and Ctrl+Shift+I combo
+        document.addEventListener('keydown', event => {
+            if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
+                event.preventDefault();
+            }
+        });
+
+        // Initialize EmailJS
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                observer.observe(el);
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+            });
+
+            // Add animate class to trigger animation
+            const style = document.createElement('style');
+            style.textContent = `
+                .animate-fade-in {
+                    animation: fadeInUp 0.8s ease forwards !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Contact form functionality
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formStatus = document.getElementById('formStatus');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Validate form
+                if (!name || !email || !subject || !message) {
+                    showStatus('Please fill in all fields.', 'error');
+                    return;
+                }
+                
+                // Show loading state
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+                submitBtn.disabled = true;
+                
+                // Create mailto link as fallback
+                const mailtoLink = `mailto:akbartampan03@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                
+                // Simulate sending delay and open mailto
+                setTimeout(() => {
+                    window.location.href = mailtoLink;
+                    showStatus('Email client opened! Please send the email from your email application.', 'success');
+                    contactForm.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+                    submitBtn.disabled = false;
+                }, 1000);
+            });
+
+            function showStatus(message, type) {
+                formStatus.style.display = 'block';
+                formStatus.innerHTML = `<div class="alert alert-${type === 'error' ? 'danger' : 'success'}" role="alert">${message}</div>`;
+                
+                // Hide status after 7 seconds
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 7000);
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
           </script>
 
 

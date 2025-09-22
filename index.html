@@ -39,6 +39,20 @@
       opacity: 0.9;
     }
 
+    .github-api-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .github-api-overlay:hover {
+      opacity: 0.95;
+      transform: scale(1.02);
+    }
+
     #fallback-stats-1, #fallback-stats-2 {
       animation: fadeIn 0.5s ease-in;
     }
@@ -57,9 +71,133 @@
       border-color: #ffffff !important;
     }
     
-    video:hover {
-      transform: scale(1.02);
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .hero-profile img {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-header {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .section-header::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    .skill-badge {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      margin: 0.25rem;
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .skill-badge:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .feature-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-card i {
       transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover i {
+      transform: scale(1.2);
+    }
+
+    .github-loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .smooth-transition {
+      transition: all 0.5s ease;
+    }
+
+    .hover-glow:hover {
+      box-shadow: 0 0 20px rgba(78, 205, 196, 0.6);
+    }
+
+    .contact-input:focus {
+      background: rgba(255, 255, 255, 0.15) !important;
+      border-color: #4ECDC4 !important;
+      color: white !important;
+      box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25) !important;
+      outline: none !important;
+    }
+
+    .contact-input::placeholder {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .contact-input {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: pre-wrap !important;
+    }
+
+    .contact-input option {
+      background-color: #1a1a1a !important;
+      color: white !important;
+    }
+
+    .professional-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(78, 205, 196, 0.4);
+    }
+
+    .social-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      color: white !important;
+      text-decoration: none !important;
     }
   </style>
 
@@ -96,9 +234,6 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#aboutme">About</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="project_akbar.html">Projects</a>
             </li>
             <li class="nav-item">
@@ -111,8 +246,8 @@
     
     <!-- Jumbotron -->
     <section class="jumbotron">
-      <div class="container-md d-flex justify-content-center text-center text-white" style="padding: 5%;background-color: rgba(0, 0, 0, 0.5);  border-radius: 5px;">
-        <div class="col" >
+      <div class="container-md d-flex justify-content-center text-center text-white" style="padding: 5%; background-color: rgba(0, 0, 0, 0.5); border-radius: 5px;">
+        <div class="col">
           <h1 class="heading animate-in animate-in-go display-4" style="font-family: 'Raleway'; font-weight: bold;">Reflecto, Facio, Gratio</h1>
         </div>
       </div>
@@ -142,47 +277,62 @@
   
 
   <!-- About me-->
-  <section>
-<div id="aboutme" class="container-md d-md-flex align-items-center justify-content-center">
-  <img src="img/fotocloseup.jpg" alt="Akbar Permana" width="300" class="rounded-circle img-thumbnail mb-3 mb-md-0 mr-md-3" loading="lazy">
-  <div class="px-4 py-3 py-md-4 rounded" style="color: white;">
-    <h1 class="display-4 mb-3">Muhammad Akbar Permanaatmaja</h1>
-    <p class="lead mb-4">👨‍💻 IT Student | 🤖 Programmer | 📽️ Content Creator</p>
-    <p class="mb-0">I am a student majoring in Software Engineering with a keen interest in developing innovative desktop applications and exploring the world of Machine Learning. 
-      As a fan of creative content, I also enjoy creating film reviews and creative videos that I share on social media.🚀</p>
+  <section id="about-hero" class="py-5">
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center hero-profile fade-in">
+      <img src="img/fotocloseup.jpg" alt="Akbar Permana" class="rounded-circle img-fluid mx-auto d-block" style="width: 300px; height: 300px; object-fit: cover;" loading="lazy">
+    </div>
+    <div class="col-md-8 fade-in">
+      <div class="px-4 py-3 py-md-4 rounded" style="color: white;">
+        <h1 class="display-4 mb-3" style="color: #FF6B6B;">Muhammad Akbar Permanaatmaja</h1>
+        <p class="lead mb-4" style="color: #4ECDC4;">👨‍💻 IT Student | 🤖 Programmer | 📽️ Content Creator</p>
+        <p class="mb-4" style="color: #e0e0e0; line-height: 1.6;">I am a student majoring in Software Engineering with a keen interest in developing innovative desktop applications and exploring the world of Machine Learning. 
+          As a fan of creative content, I also enjoy creating film reviews and creative videos that I share on social media. 🚀</p>
+        <div class="mt-4">
+          <span class="skill-badge">🎯 Software Engineering</span>
+          <span class="skill-badge">🎬 Content Creation</span>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
 </section>
 
-
-<section id="about" class="container-md d-flex align-items-center justify-content-center text-light" style="padding-bottom: 20%;">
-  <div>
-    <h1 class="display-4" style="font-family: 'Montserrat'; text-align: center;">What I Do?</h1>
-    <h2 class="display-4" style="text-align: center; padding-bottom:5%">________________</h2>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h3 class="lead" style="text-align: center;">
-            The essence of my journey revolves around my passion for interaction, be it through video conferencing, real-world engagements, or exploring websites for inspiration. 
-            I firmly believe that ideas are the cornerstone of communication and exchange of thoughts, and they can stem from anywhere.
-          </h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <h3 class="lead" style="text-align: center;">
-            Combining my interest in technology, leadership skills, and entrepreneurial spirit, I aim to create a significant positive impact in addressing challenges in the professional realm. 
-            My long-term vision extends beyond personal success to making a positive difference in society and industries. I aspire to be a change agent driving technological advancements and artistic endeavors through interdisciplinary collaborations.
-          </h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <h3 class="lead" style="text-align: center;">
-            To realize this vision, I am committed to continuous learning and self-development, whether through professional experiences, independent projects, or collaborations with leading professionals in AI and filmmaking. 
-            Furthermore, I plan to enhance my understanding of the latest trends and developments in both fields. With determination, knowledge acquired during my academic journey, and an unwavering spirit for growth, I am confident in achieving my long-term vision and making meaningful contributions.
-          </h3>
+<section id="what-i-do" class="py-5 text-light" style="margin-top: 3rem;">
+  <div class="container">
+    <div class="text-center">
+      <h1 class="section-header fade-in" style="font-family: 'Montserrat';">What I Do?</h1>
+      <div class="row mt-5">
+        <div class="col-md-12 fade-in">
+          <div class="card" style="background: rgba(255, 255, 255, 0.1); border: none; backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem;">
+            <h3 class="lead text-center" style="color: #e0e0e0; line-height: 1.8; font-size: 1.2rem;">
+              The essence of my journey revolves around my passion for interaction, be it through video conferencing, real-world engagements, or exploring websites for inspiration. 
+              I thrive on connecting with people and translating creative ideas into meaningful digital experiences.
+            </h3>
+            <div class="row mt-4">
+              <div class="col-md-4 text-center mb-3">
+                <div class="feature-card p-4" style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E); border-radius: 15px; color: white;">
+                  <i class="fas fa-code fa-3x mb-3"></i>
+                  <h4>Development</h4>
+                  <p>Creating innovative solutions with modern technologies</p>
+                </div>
+              </div>
+              <div class="col-md-4 text-center mb-3">
+                <div class="feature-card p-4" style="background: linear-gradient(135deg, #4ECDC4, #6EE8E0); border-radius: 15px; color: white;">
+                  <i class="fas fa-video fa-3x mb-3"></i>
+                  <h4>Content Creation</h4>
+                  <p>Producing engaging videos and creative content</p>
+                </div>
+              </div>
+              <div class="col-md-4 text-center mb-3">
+                <div class="feature-card p-4" style="background: linear-gradient(135deg, #A8E6CF, #7FCDCD); border-radius: 15px; color: white;">
+                  <i class="fas fa-users fa-3x mb-3"></i>
+                  <h4>Collaboration</h4>
+                  <p>Building connections and working with amazing people</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -196,21 +346,26 @@
   <div class="container text-light">
     <div class="row text-center mb-5">
       <div class="col">
-        <h1 class="display-4" style="font-family: 'Montserrat';">Technology Stack</h1>
-        <h2 class="display-4" style="text-align: center; padding-bottom: 3%;">________________</h2>
+        <h1 class="section-header fade-in" style="font-family: 'Montserrat';">Technology Stack</h1>
         <p class="lead">Technologies and tools I work with</p>
       </div>
     </div>
 
     <!-- Frontend Technologies -->
-    <div class="row mb-5">
+    <div class="row mb-5 fade-in">
       <div class="col-12">
         <h3 class="text-center mb-4" style="color: #ffffff;">🖌️ Frontend Development</h3>
         <div class="row justify-content-center">
-          <div class="col-md-2 col-4 text-center mb-3">
-            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+          <div class="col-md-2 col-4 text-center mb-3 fade-in">
+            <div class="skill-card p-3 border rounded smooth-transition hover-glow" style="background-color: #1a1a1a; border-color: #ffffff;">
               <i class="fab fa-react fa-3x mb-2" style="color: #61DAFB;"></i>
               <p class="mb-0 text-white">React.js</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-rocket fa-3x mb-2" style="color: #000000; background: linear-gradient(45deg, #000, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+              <p class="mb-0 text-white">Next.js</p>
             </div>
           </div>
           <div class="col-md-2 col-4 text-center mb-3">
@@ -237,10 +392,37 @@
               <p class="mb-0 text-white">CSS3</p>
             </div>
           </div>
+        </div>
+        <!-- Second Row -->
+        <div class="row justify-content-center">
           <div class="col-md-2 col-4 text-center mb-3">
             <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
               <i class="fab fa-bootstrap fa-3x mb-2" style="color: #7952B3;"></i>
               <p class="mb-0 text-white">Bootstrap</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-wind fa-3x mb-2" style="color: #06B6D4;"></i>
+              <p class="mb-0 text-white">Tailwind CSS</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-puzzle-piece fa-3x mb-2" style="color: #8B5CF6;"></i>
+              <p class="mb-0 text-white">ShadCN/UI</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-palette fa-3x mb-2" style="color: #319795;"></i>
+              <p class="mb-0 text-white">Chakra UI</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-seedling fa-3x mb-2" style="color: #5A67D8;"></i>
+              <p class="mb-0 text-white">DaisyUI</p>
             </div>
           </div>
         </div>
@@ -248,7 +430,7 @@
     </div>
 
     <!-- Backend Technologies -->
-    <div class="row mb-5">
+    <div class="row mb-5 fade-in">
       <div class="col-12">
         <h3 class="text-center mb-4" style="color: #ffffff;">🛠️ Backend Development</h3>
         <div class="row justify-content-center">
@@ -266,6 +448,12 @@
           </div>
           <div class="col-md-2 col-4 text-center mb-3">
             <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-server fa-3x mb-2" style="color: #68217A;"></i>
+              <p class="mb-0 text-white">Express.js</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
               <i class="fab fa-php fa-3x mb-2" style="color: #777BB4;"></i>
               <p class="mb-0 text-white">PHP</p>
             </div>
@@ -276,12 +464,18 @@
               <p class="mb-0 text-white">Python</p>
             </div>
           </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-bolt fa-3x mb-2" style="color: #FF6B35;"></i>
+              <p class="mb-0 text-white">REST API</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Database & Cloud -->
-    <div class="row mb-5">
+    <div class="row mb-5 fade-in">
       <div class="col-md-6">
         <h3 class="text-center mb-4" style="color: #ffffff;">🗃️ Database</h3>
         <div class="row justify-content-center">
@@ -319,7 +513,7 @@
     </div>
 
     <!-- Programming Languages -->
-    <div class="row">
+    <div class="row mb-5">
       <div class="col-12">
         <h3 class="text-center mb-4" style="color: #ffffff;">💻 Programming Languages</h3>
         <div class="row justify-content-center">
@@ -353,6 +547,57 @@
               <p class="mb-0 text-white">PHP</p>
             </div>
           </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-hashtag fa-3x mb-2" style="color: #239120;"></i>
+              <p class="mb-0 text-white">TypeScript</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools & Development Environment -->
+    <div class="row">
+      <div class="col-12">
+        <h3 class="text-center mb-4" style="color: #ffffff;">🛠️ Tools & Development</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-git-alt fa-3x mb-2" style="color: #F05032;"></i>
+              <p class="mb-0 text-white">Git</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-github fa-3x mb-2" style="color: #ffffff;"></i>
+              <p class="mb-0 text-white">GitHub</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-code fa-3x mb-2" style="color: #007ACC;"></i>
+              <p class="mb-0 text-white">VS Code</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-terminal fa-3x mb-2" style="color: #4EAA25;"></i>
+              <p class="mb-0 text-white">Terminal</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-npm fa-3x mb-2" style="color: #CB3837;"></i>
+              <p class="mb-0 text-white">NPM</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-cube fa-3x mb-2" style="color: #326CE5;"></i>
+              <p class="mb-0 text-white">Webpack</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -365,8 +610,7 @@
   <div class="container text-light">
     <div class="row text-center mb-5">
       <div class="col">
-        <h1 class="display-4" style="font-family: 'Montserrat';">Achievements & Experience</h1>
-        <h2 class="display-4" style="text-align: center; padding-bottom: 3%;">________________</h2>
+        <h1 class="display-4 section-header fade-in" style="font-family: 'Montserrat';">Achievements & Experience</h1>
         <p class="lead">Milestones and recognitions in my journey</p>
       </div>
     </div>
@@ -471,23 +715,6 @@
 
 <!-- projects-->
 
-<section id="projects" style="background-color: black; padding-bottom:10%">
-  <div class="container text-light text-center">
-    <div class="row text-center mb-4">
-      <div class="col overflow-hidden text-light">
-        <h1 class="display-4 " style="font-family: 'Montserrat'; text-align: center;">Some of my works</h1>
-        <h2 style="font-family: 'Montserrat'; text-align: center;">Programming Projects</h2>
-        <h2 class="display-4" style="text-align: center; padding-bottom:3%">________________</h2>
-        <p class="lead">Full-stack development projects showcasing technical skills and creativity</p>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-<!-- akhir projects -->
-
 <!-- kata bijak -->
 <div class="container" style="padding-bottom: 10%;">
   <div class="row">
@@ -511,9 +738,8 @@
   <div class="container text-light">
     <div class="row text-center mb-4">
       <div class="col overflow-hidden text-light">
-        <h1 class="display-4" style="font-family: 'Montserrat'; text-align: center;">Some of my works</h1>
+        <h1 class="display-4 section-header fade-in" style="font-family: 'Montserrat'; text-align: center;">Some of my works</h1>
         <h2 style="font-family: 'Montserrat'; text-align: center;">Programming Projects</h2>
-        <h2 class="display-4" style="text-align: center; padding-bottom: 5%;">________________</h2>
       </div>
     </div>
     
@@ -698,11 +924,8 @@
         <!-- GitHub Stats -->
         <div class="row mt-4">
           <div class="col-md-6 mb-3">
-            <img src="https://github-readme-stats.vercel.app/api?username=James1Aurora&show_icons=true&theme=dark&include_all_commits=true&count_private=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&border_color=ffffff" 
-                 alt="GitHub Stats" class="img-fluid github-stats-img" style="border-radius: 10px;" loading="lazy" 
-                 onerror="this.style.display='none'; document.getElementById('fallback-stats-1').style.display='block';">
-            <!-- Fallback for first stat -->
-            <div id="fallback-stats-1" class="card bg-dark border border-white" style="display: none;">
+            <!-- Primary Display - Always Visible -->
+            <div class="card bg-dark border border-white">
               <div class="card-header bg-transparent text-white text-center">
                 <h6><i class="fab fa-github mr-2"></i>GitHub Statistics</h6>
               </div>
@@ -729,13 +952,14 @@
                 </div>
               </div>
             </div>
+            <!-- GitHub API Image (Hidden behind, loads if available) -->
+            <img src="https://github-readme-stats.vercel.app/api?username=James1Aurora&show_icons=true&theme=dark&include_all_commits=true&count_private=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&border_color=ffffff" 
+                 alt="GitHub Stats" class="img-fluid github-api-overlay" style="border-radius: 10px; display: none;" loading="lazy" 
+                 onload="this.style.display='block'; this.previousElementSibling.style.display='none';">
           </div>
           <div class="col-md-6 mb-3">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=James1Aurora&layout=compact&theme=dark&bg_color=000000&text_color=ffffff&title_color=ffffff&border_color=ffffff" 
-                 alt="Top Languages" class="img-fluid github-stats-img" style="border-radius: 10px;" loading="lazy" 
-                 onerror="this.style.display='none'; document.getElementById('fallback-stats-2').style.display='block';">
-            <!-- Fallback for second stat -->
-            <div id="fallback-stats-2" class="card bg-dark border border-white" style="display: none;">
+            <!-- Primary Display - Always Visible -->
+            <div class="card bg-dark border border-white">
               <div class="card-header bg-transparent text-white text-center">
                 <h6><i class="fas fa-code mr-2"></i>Most Used Languages</h6>
               </div>
@@ -778,6 +1002,10 @@
                 </div>
               </div>
             </div>
+            <!-- GitHub API Image (Hidden behind, loads if available) -->
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=James1Aurora&layout=compact&theme=dark&bg_color=000000&text_color=ffffff&title_color=ffffff&border_color=ffffff" 
+                 alt="Top Languages" class="img-fluid github-api-overlay" style="border-radius: 10px; display: none;" loading="lazy" 
+                 onload="this.style.display='block'; this.previousElementSibling.style.display='none';">
           </div>
         </div>
         
@@ -816,60 +1044,12 @@
 
 <!-- akhir proyek programming -->
 
-<!-- Content Creation Section -->
-<section style="background-color: black; padding: 5% 0;">
-  <div class="container">
-    <!-- Content Creation Stats -->
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card bg-dark border border-info">
-          <div class="card-header bg-info text-white text-center">
-            <i class="fas fa-video fa-2x mb-2"></i>
-            <h5 class="card-title mb-0">Content Creation</h5>
-          </div>
-          <div class="card-body text-center">
-            <h6 class="card-subtitle mb-3 text-warning">Film Review & Creative Content</h6>
-            <div class="row">
-              <div class="col-md-3 col-6 mb-3">
-                <h4 class="text-info">12+</h4>
-                <small>Film Reviews</small>
-              </div>
-              <div class="col-md-3 col-6 mb-3">
-                <h4 class="text-info">Creative</h4>
-                <small>Video Content</small>
-              </div>
-              <div class="col-md-3 col-6 mb-3">
-                <h4 class="text-info">Social</h4>
-                <small>Media Presence</small>
-              </div>
-              <div class="col-md-3 col-6 mb-3">
-                <h4 class="text-info">Multi</h4>
-                <small>Platform Creator</small>
-              </div>
-            </div>
-            <p class="card-text mt-3">
-              Passionate about creating engaging film reviews and creative content across multiple social media platforms, 
-              combining technical skills with artistic vision.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End Content Creation Section -->
-
-
-
-
 <!-- Film Reviews Section -->
 <section style="background-color: black; padding: 5% 0;">
   <div class="container text-light text-center">
     <div class="row text-center mb-4">
       <div class="col overflow-hidden text-light">
-        <h1 class="display-4" style="font-family: 'Montserrat'; text-align: center;">Film Reviews</h1>
-        <h2 style="font-family: 'Montserrat'; text-align: center;">Creative Content</h2>
-        <h2 class="display-4" style="text-align: center; padding-bottom:3%">________________</h2>
+        <h1 class="display-4 section-header fade-in" style="font-family: 'Montserrat'; text-align: center;">Creative Content</h1>
         <p class="lead">Passionate about storytelling through film analysis and creative video content</p>
       </div>
     </div>
@@ -891,6 +1071,42 @@
                target="_blank" class="btn btn-danger btn-lg">
               <i class="fab fa-youtube mr-2"></i>Watch My Film Reviews Playlist
             </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Creation Stats -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-10">
+        <div class="card bg-dark border border-white">
+          <div class="card-header bg-transparent text-white text-center border-bottom border-white">
+            <i class="fas fa-chart-line fa-2x mb-2" style="color: #FF6B6B;"></i>
+            <h5 class="card-title mb-0">Content Creation Statistics</h5>
+          </div>
+          <div class="card-body text-center">
+            <div class="row">
+              <div class="col-md-3 col-6 mb-3">
+                <h4 class="text-danger">50+</h4>
+                <small class="text-white">Film Reviews</small>
+              </div>
+              <div class="col-md-3 col-6 mb-3">
+                <h4 class="text-warning">Creative</h4>
+                <small class="text-white">Video Content</small>
+              </div>
+              <div class="col-md-3 col-6 mb-3">
+                <h4 class="text-success">Social</h4>
+                <small class="text-white">Media Presence</small>
+              </div>
+              <div class="col-md-3 col-6 mb-3">
+                <h4 class="text-info">Multi</h4>
+                <small class="text-white">Platform Creator</small>
+              </div>
+            </div>
+            <p class="card-text mt-3 text-light">
+              Passionate about creating engaging film reviews and creative content across multiple social media platforms, 
+              combining technical skills with artistic vision.
+            </p>
           </div>
         </div>
       </div>
@@ -1008,9 +1224,40 @@
       </div>
     </div>
 
-    <div class="mt-4">
-      <h5>Take a look at the full gallery of my works  <a href="project_akbar.html">here</a>.</h5>
-      <h5>if you would like to talk about projects, jobs or ideas, you can <a href="kontak.html">contact me here</a>.</h5>
+    <!-- Call to Action Section -->
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-10">
+        <div class="card bg-dark border border-white">
+          <div class="card-body text-center py-4">
+            <h4 class="text-white mb-4">
+              <i class="fas fa-rocket mr-2" style="color: #FF6B6B;"></i>
+              Explore More of My Work
+            </h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="cta-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #FF6B6B; transition: all 0.3s ease;">
+                  <i class="fas fa-video fa-2x mb-3" style="color: #FF6B6B;"></i>
+                  <h6 class="text-white mb-2">Complete Film Collection</h6>
+                  <p class="text-muted mb-3">Discover my full gallery of film reviews, creative videos, and cinematic analysis</p>
+                  <a href="project_akbar.html" class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-play mr-1"></i>View Full Gallery
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="cta-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #4ECDC4; transition: all 0.3s ease;">
+                  <i class="fas fa-handshake fa-2x mb-3" style="color: #4ECDC4;"></i>
+                  <h6 class="text-white mb-2">Let's Collaborate</h6>
+                  <p class="text-muted mb-3">Ready to discuss projects, job opportunities, or innovative ideas together?</p>
+                  <a href="kontak.html" class="btn btn-outline-info btn-sm">
+                    <i class="fas fa-envelope mr-1"></i>Get In Touch
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1019,41 +1266,106 @@
 
 
 
-<!-- contact -->
-        <section id="contact" style="padding-bottom: 10%;">
-          <div class="container text-light">
-          <div class="row text-center mb-4 text-light">
-            <div class="col">
-              <h2>
-                Let's Talk
-              </h2>
+<!-- Professional Contact Section -->
+<section id="contact" style="padding: 5% 0; background: linear-gradient(135deg, #1a1a1a, #000000);">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center fade-in">
+                <h2 class="section-header" style="color: white; font-family: 'Raleway'; font-weight: bold;">
+                    Send Me a Message
+                </h2>
+                <p class="lead" style="color: #e0e0e0;">
+                    Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
+                </p>
             </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <form id="contactForm">
-                <div class="mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" required aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email Address</label>
-                  <input type="email" class="form-control" id="email" name="email" required aria-describedby="email">
-                </div>
-                <div class="mb-3">
-                  <label for="pesan" class="form-label">Message</label>
-                  <textarea class="form-control" id="pesan" name="message" rows="3" required></textarea>
-                </div>
-    
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-              
-              <!-- Status message -->
-              <div id="formStatus" class="mt-3" style="display: none;"></div>
-            </div>
-          </div>
         </div>
-        </section>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-card p-5 fade-in" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px;">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="name" class="form-label" style="color: #4ECDC4; font-weight: 600;">
+                                    <i class="fas fa-user mr-2"></i>Full Name
+                                </label>
+                                <input type="text" class="form-control contact-input" id="name" name="name" placeholder="Your full name" required style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; color: white; padding: 1rem;">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="email" class="form-label" style="color: #4ECDC4; font-weight: 600;">
+                                    <i class="fas fa-envelope mr-2"></i>Email Address
+                                </label>
+                                <input type="email" class="form-control contact-input" id="email" name="email" placeholder="your.email@example.com" required style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; color: white; padding: 1rem;">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="form-label" style="color: #4ECDC4; font-weight: 600;">
+                                <i class="fas fa-tag mr-2"></i>Subject
+                            </label>
+                            <select class="form-control contact-input" id="subject" name="subject" required style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; color: white; padding: 1rem;">
+                                <option value="">Choose a subject...</option>
+                                <option value="Project Collaboration">Project Collaboration</option>
+                                <option value="Job Opportunity">Job Opportunity</option>
+                                <option value="Film Review Request">Film Review Request</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="pesan" class="form-label" style="color: #4ECDC4; font-weight: 600;">
+                                <i class="fas fa-comment mr-2"></i>Message
+                            </label>
+                            <textarea class="form-control contact-input" id="pesan" name="message" rows="6" placeholder="Tell me about your project or inquiry..." required style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; color: white; padding: 1rem;"></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="professional-btn" id="submitBtn" style="background: linear-gradient(135deg, #4ECDC4, #44A08D); border: none; border-radius: 50px; padding: 1rem 2rem; color: white; font-weight: 600; transition: all 0.3s ease;">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </div>
+                        
+                        <div id="formStatus" class="mt-3 text-center" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Contact Methods -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-10">
+                <div class="row fade-in">
+                    <div class="col-md-4 mb-4">
+                        <a href="https://www.linkedin.com/in/akbareup/" target="_blank" class="social-card text-decoration-none" style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4); border-radius: 20px; padding: 2rem; color: white; display: block; transition: all 0.3s ease;">
+                            <div class="text-center">
+                                <i class="fab fa-linkedin fa-3x mb-3"></i>
+                                <h4>LinkedIn</h4>
+                                <p class="mb-0">Connect professionally</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <a href="mailto:akbartampan03@gmail.com" class="social-card text-decoration-none" style="background: linear-gradient(135deg, #4ECDC4, #44A08D); border-radius: 20px; padding: 2rem; color: white; display: block; transition: all 0.3s ease;">
+                            <div class="text-center">
+                                <i class="fas fa-envelope fa-3x mb-3"></i>
+                                <h4>Direct Email</h4>
+                                <p class="mb-0">For business inquiries</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <a href="https://linktr.ee/jamesaurora" target="_blank" class="social-card text-decoration-none" style="background: linear-gradient(135deg, #A8E6CF, #88D8C0); border-radius: 20px; padding: 2rem; color: white; display: block; transition: all 0.3s ease;">
+                            <div class="text-center">
+                                <i class="fas fa-link fa-3x mb-3"></i>
+                                <h4>Social Hub</h4>
+                                <p class="mb-0">All platforms</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- akhir contact -->
   
 
@@ -1065,14 +1377,67 @@
 </section>
 <!-- akhir gambar footer-->
 
-<footer class="footer" style="background-color: black; padding:3%">
-  <div class="container text-center text-light" style="font-family:'Raleway', 'Arial Narrow', Arial, sans-serif; font-weight:bold;">
-    <h4>Akbar Permana</h4>
-    <p>West Java, Indonesia</p>
-    <p>
-      <a href="mailto:akbartampan03@gmail.com">Email: akbartampan03@gmail.com</a>
-    </p>
-  </div>
+<!-- Professional Footer -->
+<footer style="background: linear-gradient(135deg, #000000, #1a1a1a); padding: 3% 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <h4 style="color: #FF6B6B; font-family: 'Raleway'; font-weight: bold;">James Aurora</h4>
+                <p style="color: #e0e0e0; margin: 0;">Software Engineer & Content Creator</p>
+                <p style="color: #4ECDC4; margin: 0;">
+                    <i class="fas fa-map-marker-alt mr-2"></i>West Java, Indonesia
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-right">
+                <div class="mb-3">
+                    <a href="https://www.linkedin.com/in/akbareup/" target="_blank" class="text-white mr-3" style="font-size: 1.5rem;">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:akbartampan03@gmail.com" class="text-white mr-3" style="font-size: 1.5rem;">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linktr.ee/jamesaurora" target="_blank" class="text-white" style="font-size: 1.5rem;">
+                        <i class="fas fa-link"></i>
+                    </a>
+                </div>
+                <p style="color: #888; margin: 0; font-size: 0.9rem;">
+                    © 2025 James Aurora. All rights reserved.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="row mt-4 pt-4" style="border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <div class="col-md-3 col-6 text-center mb-3">
+                <div style="color: #FF6B6B;">
+                    <i class="fas fa-video fa-2x mb-2"></i>
+                    <h5 style="color: white; margin: 0;">50+</h5>
+                    <small style="color: #888;">Film Reviews</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 text-center mb-3">
+                <div style="color: #4ECDC4;">
+                    <i class="fas fa-code fa-2x mb-2"></i>
+                    <h5 style="color: white; margin: 0;">20+</h5>
+                    <small style="color: #888;">Projects</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 text-center mb-3">
+                <div style="color: #A8E6CF;">
+                    <i class="fas fa-eye fa-2x mb-2"></i>
+                    <h5 style="color: white; margin: 0;">10K+</h5>
+                    <small style="color: #888;">Views</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 text-center mb-3">
+                <div style="color: #FFA07A;">
+                    <i class="fas fa-calendar fa-2x mb-2"></i>
+                    <h5 style="color: white; margin: 0;">3+</h5>
+                    <small style="color: #888;">Years</small>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
 
 
@@ -1117,10 +1482,11 @@
                     // Get form data
                     const name = document.getElementById('name').value;
                     const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
                     const message = document.getElementById('pesan').value;
                     
                     // Validate form
-                    if (!name || !email || !message) {
+                    if (!name || !email || !subject || !message) {
                         showStatus('Please fill in all fields.', 'error');
                         return;
                     }
@@ -1128,7 +1494,7 @@
                     // Show loading state
                     const submitBtn = contactForm.querySelector('button[type="submit"]');
                     const originalText = submitBtn.innerHTML;
-                    submitBtn.innerHTML = 'Sending...';
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
                     submitBtn.disabled = true;
                     
                     // Method 1: Using EmailJS (requires setup)
@@ -1150,9 +1516,9 @@
                     */
                     
                     // Method 2: Using mailto (current implementation)
-                    const subject = `Contact from ${name} - Portfolio Website`;
-                    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent from Portfolio Contact Form`;
-                    const mailtoLink = `mailto:akbartampan03@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    const emailSubject = subject || `Contact from ${name} - Portfolio Website`;
+                    const body = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}\n\n---\nSent from Portfolio Contact Form`;
+                    const mailtoLink = `mailto:akbartampan03@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(body)}`;
                     
                     // Open email client
                     window.location.href = mailtoLink;
@@ -1162,7 +1528,7 @@
                     
                     // Reset form and button
                     contactForm.reset();
-                    submitBtn.innerHTML = originalText;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
                     submitBtn.disabled = false;
                 });
 
@@ -1177,6 +1543,56 @@
                     }, 7000);
                 }
             });
+    </script>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                observer.observe(el);
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animate class to trigger animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-fade-in {
+                animation: fadeInUp 0.8s ease forwards !important;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 
 </body>
