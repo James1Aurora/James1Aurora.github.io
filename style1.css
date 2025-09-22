@@ -4,7 +4,7 @@
   background-position: center;
   position: relative;
   padding: 20%;
-  background-attachment: fixed;
+  background-attachment: scroll;
   width: 100%;
   height: 100vh; /* Menggunakan viewport height untuk memastikan gambar memenuhi tinggi layar */
   overflow: hidden; /* Menghilangkan kemungkinan tampilan horizontal yang tidak diinginkan */
@@ -86,7 +86,7 @@
   background-image: url('img/boyss.jpg'); /* Menggunakan gambar sebagai latar belakang */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Membuat gambar tetap di lokasi saat di-scroll */
+  background-attachment: scroll; /* Membuat gambar lebih ringan untuk performa */
   position: relative;
   height: 50vh; /* Menetapkan tinggi elemen sama dengan tinggi layar */
 }
@@ -107,6 +107,122 @@
   }
 }
 
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
 
-  
-  
+/* Hover Effects for Cards */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* Skill Card Hover Effects */
+.skill-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+  background-color: #3d3d3d !important;
+}
+
+/* Button Hover Effects */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Hover Effects */
+img {
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Loading Animation for GitHub Stats */
+.github-stats img {
+  transition: opacity 0.5s ease;
+}
+
+/* Navbar smooth transition */
+.navbar {
+  transition: background-color 0.3s ease;
+}
+
+/* Video hover effects */
+video {
+  transition: all 0.3s ease;
+}
+
+video:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* Category Card Effects */
+.category-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* Gradient background for special cards */
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+/* Badge hover effects */
+.badge {
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  transform: scale(1.1);
+}
+
+/* YouTube button special styling */
+.btn-danger {
+  background: linear-gradient(45deg, #FF0000, #CC0000);
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(45deg, #CC0000, #990000);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+  transform: translateY(-3px);
+}

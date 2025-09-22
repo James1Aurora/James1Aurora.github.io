@@ -4,11 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Muhammad Akbar Permanaatmaja</title>
+  <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style1.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <script>
       function disableClick(){
@@ -91,7 +98,7 @@
   <!-- About me-->
   <section>
 <div id="aboutme" class="container-md d-md-flex align-items-center justify-content-center">
-  <img src="img/fotocloseup.jpg" alt="Akbar Permana" width="300" class="rounded-circle img-thumbnail mb-3 mb-md-0 mr-md-3">
+  <img src="img/fotocloseup.jpg" alt="Akbar Permana" width="300" class="rounded-circle img-thumbnail mb-3 mb-md-0 mr-md-3" loading="lazy">
   <div class="px-4 py-3 py-md-4 rounded" style="color: white;">
     <h1 class="display-4 mb-3">Muhammad Akbar Permanaatmaja</h1>
     <p class="lead mb-4">👨‍💻 IT Student | 🤖 Programmer | 📽️ Content Creator</p>
@@ -138,64 +145,297 @@
 
 <!-- akhir aboutme-->
 
+<!-- Skills Section -->
+<section id="skills" style="background-color: #1a1a1a; padding: 5% 0;">
+  <div class="container text-light">
+    <div class="row text-center mb-5">
+      <div class="col">
+        <h1 class="display-4" style="font-family: 'Montserrat';">Technology Stack</h1>
+        <h2 class="display-4" style="text-align: center; padding-bottom: 3%;">________________</h2>
+        <p class="lead">Technologies and tools I work with</p>
+      </div>
+    </div>
+
+    <!-- Frontend Technologies -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h3 class="text-center mb-4" style="color: #ffffff;">🖌️ Frontend Development</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-react fa-3x mb-2" style="color: #61DAFB;"></i>
+              <p class="mb-0 text-white">React.js</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-vuejs fa-3x mb-2" style="color: #4FC08D;"></i>
+              <p class="mb-0 text-white">Vue.js</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-js-square fa-3x mb-2" style="color: #F7DF1E;"></i>
+              <p class="mb-0 text-white">JavaScript</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-html5 fa-3x mb-2" style="color: #E34F26;"></i>
+              <p class="mb-0 text-white">HTML5</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-css3-alt fa-3x mb-2" style="color: #1572B6;"></i>
+              <p class="mb-0 text-white">CSS3</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-bootstrap fa-3x mb-2" style="color: #7952B3;"></i>
+              <p class="mb-0 text-white">Bootstrap</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backend Technologies -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h3 class="text-center mb-4" style="color: #ffffff;">🛠️ Backend Development</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-laravel fa-3x mb-2" style="color: #FF2D20;"></i>
+              <p class="mb-0 text-white">Laravel</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-node-js fa-3x mb-2" style="color: #339933;"></i>
+              <p class="mb-0 text-white">Node.js</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-php fa-3x mb-2" style="color: #777BB4;"></i>
+              <p class="mb-0 text-white">PHP</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-python fa-3x mb-2" style="color: #3776AB;"></i>
+              <p class="mb-0 text-white">Python</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Database & Cloud -->
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <h3 class="text-center mb-4" style="color: #ffffff;">🗃️ Database</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-4 col-6 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-database fa-3x mb-2" style="color: #4479A1;"></i>
+              <p class="mb-0 text-white">MySQL</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-fire fa-3x mb-2" style="color: #FFCA28;"></i>
+              <p class="mb-0 text-white">Firestore</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-center mb-4" style="color: #ffffff;">☁️ Cloud & DevOps</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-4 col-6 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-google fa-3x mb-2" style="color: #4285F4;"></i>
+              <p class="mb-0 text-white">Google Cloud</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-docker fa-3x mb-2" style="color: #2496ED;"></i>
+              <p class="mb-0 text-white">Docker</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Programming Languages -->
+    <div class="row">
+      <div class="col-12">
+        <h3 class="text-center mb-4" style="color: #ffffff;">💻 Programming Languages</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-js-square fa-3x mb-2" style="color: #F7DF1E;"></i>
+              <p class="mb-0 text-white">JavaScript</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-python fa-3x mb-2" style="color: #3776AB;"></i>
+              <p class="mb-0 text-white">Python</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fas fa-code fa-3x mb-2" style="color: #00599C;"></i>
+              <p class="mb-0 text-white">C++</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-java fa-3x mb-2" style="color: #ED8B00;"></i>
+              <p class="mb-0 text-white">Java</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-4 text-center mb-3">
+            <div class="skill-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #ffffff;">
+              <i class="fab fa-php fa-3x mb-2" style="color: #777BB4;"></i>
+              <p class="mb-0 text-white">PHP</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Skills Section -->
+
+<!-- Achievements Section -->
+<section id="achievements" style="background-color: black; padding: 5% 0;">
+  <div class="container text-light">
+    <div class="row text-center mb-5">
+      <div class="col">
+        <h1 class="display-4" style="font-family: 'Montserrat';">Achievements & Experience</h1>
+        <h2 class="display-4" style="text-align: center; padding-bottom: 3%;">________________</h2>
+        <p class="lead">Milestones and recognitions in my journey</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <!-- Education -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-primary h-100">
+          <div class="card-header bg-primary text-white text-center">
+            <i class="fas fa-graduation-cap fa-2x mb-2"></i>
+            <h5 class="card-title mb-0">Education</h5>
+          </div>
+          <div class="card-body text-center">
+            <h6 class="card-subtitle mb-3 text-warning">Software Engineering Student</h6>
+            <p class="card-text">
+              Currently pursuing Software Engineering degree with focus on:
+            </p>
+            <ul class="list-unstyled">
+              <li>✅ Web Development</li>
+              <li>✅ Mobile Application</li>
+              <li>✅ Database Management</li>
+              <li>✅ Software Architecture</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- GitHub Achievements -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-success h-100">
+          <div class="card-header bg-success text-white text-center">
+            <i class="fab fa-github fa-2x mb-2"></i>
+            <h5 class="card-title mb-0">GitHub Achievements</h5>
+          </div>
+          <div class="card-body text-center">
+            <h6 class="card-subtitle mb-3 text-warning">Open Source Contributor</h6>
+            <div class="achievement-stats">
+              <div class="row">
+                <div class="col-6">
+                  <h4 class="text-info">34</h4>
+                  <small>Repositories</small>
+                </div>
+                <div class="col-6">
+                  <h4 class="text-info">115+</h4>
+                  <small>Contributions</small>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <span class="badge badge-warning mr-1">Pull Shark</span>
+              <span class="badge badge-info mr-1">Quickdraw</span>
+              <span class="badge badge-success">Active Developer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills & Expertise -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-warning h-100">
+          <div class="card-header bg-warning text-dark text-center">
+            <i class="fas fa-code fa-2x mb-2"></i>
+            <h5 class="card-title mb-0">Technical Skills</h5>
+          </div>
+          <div class="card-body text-center">
+            <h6 class="card-subtitle mb-3 text-warning">Full Stack Developer</h6>
+            <div class="skill-level">
+              <div class="mb-2">
+                <small>Frontend Development</small>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="mb-2">
+                <small>Backend Development</small>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="mb-2">
+                <small>Database Management</small>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="mb-2">
+                <small>Cloud Computing</small>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- End Achievements Section -->
+
 
 <!-- projects-->
 
 <section id="projects" style="background-color: black; padding-bottom:10%">
   <div class="container text-light text-center">
-    <div class="row text-center mb-1">
+    <div class="row text-center mb-4">
       <div class="col overflow-hidden text-light">
         <h1 class="display-4 " style="font-family: 'Montserrat'; text-align: center;">Some of my works</h1>
-        <h2 style="font-family: 'Montserrat'; text-align: center;">Reviewing films</h2>
-        <h2 class="display-4" style="text-align: center; padding-bottom:5%">________________</h2>
+        <h2 style="font-family: 'Montserrat'; text-align: center;">Programming Projects</h2>
+        <h2 class="display-4" style="text-align: center; padding-bottom:3%">________________</h2>
+        <p class="lead">Full-stack development projects showcasing technical skills and creativity</p>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (1).mp4" class="card-img-top" muted autoplay></video>
-          <div class="card-body">
-            <p class="card-text text-light">Mao Anying on Chinese Drama Going Across The Yalu River (2020).</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (2).mp4" class="card-img-top" muted autoplay></video>
-          <div class="card-body">
-            <p class="card-text text-light">Julius Robert Oppenheimer film 2023 directed by Christopher Nolan.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (3).mp4" class="card-img-top" muted autoplay></video>
-          <div class="card-body">
-            <p class="card-text text-light">Band of Brothers (2001) by Steven Spielberg.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (4).mp4" class="card-img-top" controls></video>
-          <div class="card-body">
-            <p class="card-text text-light">Breaking Bad The Series (2008-2013).</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card bg-transparent border border-white">
-          <video src="img/vid (5).mp4" class="card-img-top" controls></video>
-          <div class="card-body">
-            <p class="card-text text-light">The Last of Us (2023) all infected.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <h5>Take a look at the full gallery of my works  <a href="project_akbar.html">here</a>.</h5>
-    <h5>if you would like to talk about projects, jobs or ideas, you can <a href="kontak.html">contact me here</a>.</h5>
   </div>
-
 
 </section>
 
@@ -223,19 +463,506 @@
 <!-- proyek programming -->
 <section style="background-color: black; padding-bottom: 10%;">
   <div class="container text-light">
-    <div class="row text-center mb-1">
+    <div class="row text-center mb-4">
       <div class="col overflow-hidden text-light">
         <h1 class="display-4" style="font-family: 'Montserrat'; text-align: center;">Some of my works</h1>
-        <h2 style="font-family: 'Montserrat'; text-align: center;">at Programming</h2>
+        <h2 style="font-family: 'Montserrat'; text-align: center;">Programming Projects</h2>
         <h2 class="display-4" style="text-align: center; padding-bottom: 5%;">________________</h2>
-        <a href="https://github.com/James1Aurora"><img src="img/githubb.png" alt="GitHub Logo" style="border-radius: 6px; max-width: 100%;"></a>
+      </div>
+    </div>
+    
+    <!-- Programming Projects Grid -->
+    <div class="row justify-content-center mb-4">
+      <!-- Project 1: Math Formula Set -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-white h-100">
+          <div class="card-header bg-primary text-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-calculator"></i> Math Formula Set
+            </h5>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text text-light">
+              A comprehensive mathematics application using C++ designed to empower users in their mathematical journeys. 
+              Includes real number operations, set theory manipulation, and advanced mathematical formulas.
+            </p>
+            <div class="mt-auto">
+              <span class="badge badge-info mr-2">C++</span>
+              <span class="badge badge-secondary mr-2">Mathematics</span>
+              <span class="badge badge-success">Desktop App</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="https://github.com/James1Aurora/math-formula-set-for-dummies" target="_blank" class="btn btn-outline-light btn-sm">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: E-commerce Catalog -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-white h-100">
+          <div class="card-header bg-success text-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-shopping-cart"></i> E-commerce Catalog
+            </h5>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text text-light">
+              Modern e-commerce catalog application built with Vue.js and FakeStore API. 
+              Features product browsing, filtering, and responsive design for optimal user experience.
+            </p>
+            <div class="mt-auto">
+              <span class="badge badge-success mr-2">Vue.js</span>
+              <span class="badge badge-warning mr-2">API</span>
+              <span class="badge badge-info">Responsive</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="https://github.com/James1Aurora/ecommerce-catalog" target="_blank" class="btn btn-outline-light btn-sm">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: CibiGuess -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-white h-100">
+          <div class="card-header bg-warning text-dark">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-gamepad"></i> CibiGuess Game
+            </h5>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text text-light">
+              Interactive guessing game developed as part of Semester 4 project. 
+              Built with Laravel Blade templating engine featuring engaging gameplay and user-friendly interface.
+            </p>
+            <div class="mt-auto">
+              <span class="badge badge-danger mr-2">Laravel</span>
+              <span class="badge badge-warning mr-2">Blade</span>
+              <span class="badge badge-info">Game</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="https://github.com/James1Aurora/cibiguess" target="_blank" class="btn btn-outline-light btn-sm">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="row justify-content-center mb-4">
+      <!-- Project 4: WarunQ -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-white h-100">
+          <div class="card-header bg-danger text-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-store"></i> WarunQ System
+            </h5>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text text-light">
+              Comprehensive point-of-sale (POS) system for small businesses. 
+              Developed using Java with features for inventory management, sales tracking, and customer management.
+            </p>
+            <div class="mt-auto">
+              <span class="badge badge-danger mr-2">Java</span>
+              <span class="badge badge-primary mr-2">POS System</span>
+              <span class="badge badge-secondary">Desktop</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="https://github.com/James1Aurora/WarunQ" target="_blank" class="btn btn-outline-light btn-sm">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5: Acne Scan Frontend -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-white h-100">
+          <div class="card-header bg-info text-white">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-search"></i> Acne Scan Frontend
+            </h5>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text text-light">
+              Frontend application for acne detection and analysis system. 
+              Built with modern JavaScript frameworks for seamless user interaction and medical article display.
+            </p>
+            <div class="mt-auto">
+              <span class="badge badge-warning mr-2">JavaScript</span>
+              <span class="badge badge-info mr-2">Healthcare</span>
+              <span class="badge badge-success">Frontend</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="https://github.com/Acne-Scan/FE-Artikel" target="_blank" class="btn btn-outline-light btn-sm">
+              <i class="fab fa-github"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6: Portfolio Website -->
+      <div class="col-md-4 mb-4">
+        <div class="card bg-dark border border-white h-100">
+          <div class="card-header bg-purple text-white" style="background-color: #6f42c1 !important;">
+            <h5 class="card-title mb-0">
+              <i class="fas fa-globe"></i> Portfolio Website
+            </h5>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <p class="card-text text-light">
+              Personal portfolio website showcasing projects, skills, and achievements. 
+              Built with Bootstrap for responsive design and smooth user experience.
+            </p>
+            <div class="mt-auto">
+              <span class="badge badge-primary mr-2">HTML/CSS</span>
+              <span class="badge badge-info mr-2">Bootstrap</span>
+              <span class="badge badge-success">Live Site</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="https://github.com/James1Aurora/James1Aurora.github.io" target="_blank" class="btn btn-outline-light btn-sm">
+              <i class="fab fa-github"></i> View Code
+            </a>
+            <a href="https://james1aurora.github.io" target="_blank" class="btn btn-primary btn-sm ml-2">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GitHub Section -->
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <a href="https://github.com/James1Aurora"><img src="img/githubb.png" alt="GitHub Logo" style="border-radius: 6px; max-width: 98%; width: 550px;" loading="lazy"></a>
         <p style="font-family: 'Montserrat'; text-align: center; padding-top: 10px;">Check out my GitHub<a href="https://github.com/James1Aurora"> @James1Aurora</a></p>
+        <p class="text-muted">34 repositories • Software Engineering Student • Web Development Enthusiast</p>
+        
+        <!-- GitHub Stats -->
+        <div class="row mt-4">
+          <div class="col-md-6 mb-3">
+            <img src="https://github-readme-stats.vercel.app/api?username=James1Aurora&show_icons=true&theme=dark&include_all_commits=true&count_private=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&border_color=ffffff" 
+                 alt="GitHub Stats" class="img-fluid" style="border-radius: 10px;" loading="lazy" onerror="this.style.display='none';">
+          </div>
+          <div class="col-md-6 mb-3">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=James1Aurora&layout=compact&theme=dark&bg_color=000000&text_color=ffffff&title_color=ffffff&border_color=ffffff" 
+                 alt="Top Languages" class="img-fluid" style="border-radius: 10px;" loading="lazy" onerror="this.style.display='none';">
+          </div>
+        </div>
+        
+        <!-- Fallback Stats Display -->
+        <div class="row mt-3" id="fallback-stats">
+          <div class="col-md-6 mb-3">
+            <div class="card bg-dark border border-white">
+              <div class="card-header bg-transparent text-white text-center">
+                <h6><i class="fab fa-github mr-2"></i>GitHub Statistics</h6>
+              </div>
+              <div class="card-body text-center">
+                <div class="row">
+                  <div class="col-6">
+                    <h4 class="text-info">34</h4>
+                    <small>Repositories</small>
+                  </div>
+                  <div class="col-6">
+                    <h4 class="text-success">115+</h4>
+                    <small>Contributions</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card bg-dark border border-white">
+              <div class="card-header bg-transparent text-white text-center">
+                <h6><i class="fas fa-code mr-2"></i>Most Used Languages</h6>
+              </div>
+              <div class="card-body">
+                <div class="mb-2">
+                  <div class="d-flex justify-content-between">
+                    <small>C++</small>
+                    <small>28.69%</small>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-primary" style="width: 28.69%"></div>
+                  </div>
+                </div>
+                <div class="mb-2">
+                  <div class="d-flex justify-content-between">
+                    <small>HTML</small>
+                    <small>26.89%</small>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-warning" style="width: 26.89%"></div>
+                  </div>
+                </div>
+                <div class="mb-2">
+                  <div class="d-flex justify-content-between">
+                    <small>JavaScript</small>
+                    <small>19.05%</small>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-success" style="width: 19.05%"></div>
+                  </div>
+                </div>
+                <div class="mb-2">
+                  <div class="d-flex justify-content-between">
+                    <small>Go</small>
+                    <small>12.60%</small>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-info" style="width: 12.60%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- GitHub Activity - Simplified -->
+        <div class="row mt-3">
+          <div class="col-12">
+            <div class="card bg-dark border border-white">
+              <div class="card-body text-center">
+                <h6 class="text-white mb-3"><i class="fas fa-chart-line mr-2"></i>GitHub Activity</h6>
+                <div class="row">
+                  <div class="col-md-3 col-6 mb-2">
+                    <h5 class="text-primary">Active</h5>
+                    <small>Developer</small>
+                  </div>
+                  <div class="col-md-3 col-6 mb-2">
+                    <h5 class="text-success">Open Source</h5>
+                    <small>Contributor</small>
+                  </div>
+                  <div class="col-md-3 col-6 mb-2">
+                    <h5 class="text-warning">Multi-Language</h5>
+                    <small>Programmer</small>
+                  </div>
+                  <div class="col-md-3 col-6 mb-2">
+                    <h5 class="text-info">Continuous</h5>
+                    <small>Learner</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- akhir proyek programming -->
+
+<!-- Content Creation Section -->
+<section style="background-color: black; padding: 5% 0;">
+  <div class="container">
+    <!-- Content Creation Stats -->
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card bg-dark border border-info">
+          <div class="card-header bg-info text-white text-center">
+            <i class="fas fa-video fa-2x mb-2"></i>
+            <h5 class="card-title mb-0">Content Creation</h5>
+          </div>
+          <div class="card-body text-center">
+            <h6 class="card-subtitle mb-3 text-warning">Film Review & Creative Content</h6>
+            <div class="row">
+              <div class="col-md-3 col-6 mb-3">
+                <h4 class="text-info">12+</h4>
+                <small>Film Reviews</small>
+              </div>
+              <div class="col-md-3 col-6 mb-3">
+                <h4 class="text-info">Creative</h4>
+                <small>Video Content</small>
+              </div>
+              <div class="col-md-3 col-6 mb-3">
+                <h4 class="text-info">Social</h4>
+                <small>Media Presence</small>
+              </div>
+              <div class="col-md-3 col-6 mb-3">
+                <h4 class="text-info">Multi</h4>
+                <small>Platform Creator</small>
+              </div>
+            </div>
+            <p class="card-text mt-3">
+              Passionate about creating engaging film reviews and creative content across multiple social media platforms, 
+              combining technical skills with artistic vision.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Content Creation Section -->
+
+
+
+
+<!-- Film Reviews Section -->
+<section style="background-color: black; padding: 5% 0;">
+  <div class="container text-light text-center">
+    <div class="row text-center mb-4">
+      <div class="col overflow-hidden text-light">
+        <h1 class="display-4" style="font-family: 'Montserrat'; text-align: center;">Film Reviews</h1>
+        <h2 style="font-family: 'Montserrat'; text-align: center;">Creative Content</h2>
+        <h2 class="display-4" style="text-align: center; padding-bottom:3%">________________</h2>
+        <p class="lead">Passionate about storytelling through film analysis and creative video content</p>
+      </div>
+    </div>
+
+    <!-- YouTube Channel Section -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-10">
+        <div class="card bg-dark border border-danger">
+          <div class="card-header bg-danger text-white text-center">
+            <i class="fab fa-youtube fa-2x mb-2"></i>
+            <h4 class="mb-0">YouTube Content Creator</h4>
+          </div>
+          <div class="card-body text-center">
+            <p class="card-text mb-4">
+              Creating in-depth film reviews and creative content that explores storytelling, cinematography, and the art of filmmaking. 
+              From classic masterpieces to modern blockbusters, I analyze what makes great cinema.
+            </p>
+            <a href="https://www.youtube.com/watch?v=fDhqkCOkITE&list=PLhdTt68ddXT48eVd_A7K7T2d5pLdgGjhr" 
+               target="_blank" class="btn btn-danger btn-lg">
+              <i class="fab fa-youtube mr-2"></i>Watch My Film Reviews Playlist
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Video Reviews -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-12">
+        <h3 class="text-center mb-4" style="color: #FF6B6B;">🎬 Featured Film Reviews</h3>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-3">
+        <div class="card bg-transparent border border-white">
+          <video src="img/vid (1).mp4" class="card-img-top" muted preload="metadata" loading="lazy"></video>
+          <div class="card-body">
+            <h6 class="card-title text-warning">Historical Drama Review</h6>
+            <p class="card-text text-light">Mao Anying on Chinese Drama Going Across The Yalu River (2020).</p>
+            <div class="mt-2">
+              <span class="badge badge-primary mr-1">War Drama</span>
+              <span class="badge badge-secondary">Historical</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-transparent border border-white">
+          <video src="img/vid (2).mp4" class="card-img-top" muted preload="metadata" loading="lazy"></video>
+          <div class="card-body">
+            <h6 class="card-title text-warning">Biographical Thriller</h6>
+            <p class="card-text text-light">Julius Robert Oppenheimer film 2023 directed by Christopher Nolan.</p>
+            <div class="mt-2">
+              <span class="badge badge-warning mr-1">Biography</span>
+              <span class="badge badge-info">Nolan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-transparent border border-white">
+          <video src="img/vid (3).mp4" class="card-img-top" muted preload="metadata" loading="lazy"></video>
+          <div class="card-body">
+            <h6 class="card-title text-warning">War Miniseries</h6>
+            <p class="card-text text-light">Band of Brothers (2001) by Steven Spielberg.</p>
+            <div class="mt-2">
+              <span class="badge badge-success mr-1">Miniseries</span>
+              <span class="badge badge-primary">Spielberg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-transparent border border-white">
+          <video src="img/vid (4).mp4" class="card-img-top" controls preload="metadata" loading="lazy"></video>
+          <div class="card-body">
+            <h6 class="card-title text-warning">Crime Drama Series</h6>
+            <p class="card-text text-light">Breaking Bad The Series (2008-2013).</p>
+            <div class="mt-2">
+              <span class="badge badge-dark mr-1">Crime</span>
+              <span class="badge badge-danger">Drama</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-transparent border border-white">
+          <video src="img/vid (5).mp4" class="card-img-top" controls preload="metadata" loading="lazy"></video>
+          <div class="card-body">
+            <h6 class="card-title text-warning">Post-Apocalyptic Horror</h6>
+            <p class="card-text text-light">The Last of Us (2023) all infected.</p>
+            <div class="mt-2">
+              <span class="badge badge-danger mr-1">Horror</span>
+              <span class="badge badge-dark">Zombie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Categories -->
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-10">
+        <h4 class="text-center mb-4" style="color: #FFD700;">🎭 Review Categories</h4>
+        <div class="row">
+          <div class="col-md-3 col-6 text-center mb-3">
+            <div class="category-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #FF6B6B;">
+              <i class="fas fa-film fa-2x mb-2" style="color: #FF6B6B;"></i>
+              <h6 class="text-white">War & History</h6>
+              <small class="text-muted">Epic historical dramas</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-3">
+            <div class="category-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #4ECDC4;">
+              <i class="fas fa-brain fa-2x mb-2" style="color: #4ECDC4;"></i>
+              <h6 class="text-white">Psychological</h6>
+              <small class="text-muted">Mind-bending thrillers</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-3">
+            <div class="category-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #45B7D1;">
+              <i class="fas fa-tv fa-2x mb-2" style="color: #45B7D1;"></i>
+              <h6 class="text-white">Series Analysis</h6>
+              <small class="text-muted">TV series deep dives</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 text-center mb-3">
+            <div class="category-card p-3 border rounded" style="background-color: #1a1a1a; border-color: #F7DC6F;">
+              <i class="fas fa-star fa-2x mb-2" style="color: #F7DC6F;"></i>
+              <h6 class="text-white">Masterpieces</h6>
+              <small class="text-muted">Cinematic excellence</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <h5>Take a look at the full gallery of my works  <a href="project_akbar.html">here</a>.</h5>
+      <h5>if you would like to talk about projects, jobs or ideas, you can <a href="kontak.html">contact me here</a>.</h5>
+    </div>
+  </div>
+</section>
+<!-- End Film Reviews Section -->
 
 
 
@@ -252,22 +979,25 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-8">
-              <form>
+              <form id="contactForm">
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" id="name" name="name" required aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email Address</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="email">
+                  <input type="email" class="form-control" id="email" name="email" required aria-describedby="email">
                 </div>
                 <div class="mb-3">
-                  <label for="pesan" class="pesan">Message</label>
-                  <textarea class="form-control" id="pesan" rows="3"></textarea>
+                  <label for="pesan" class="form-label">Message</label>
+                  <textarea class="form-control" id="pesan" name="message" rows="3" required></textarea>
                 </div>
     
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
+              
+              <!-- Status message -->
+              <div id="formStatus" class="mt-3" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -295,33 +1025,106 @@
 
 
   <!-- jQuery dan Bootstrap JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-            document.addEventListener('contextmenu', event => event.preventDefault());
-            // Disable F12 key and Ctrl+Shift+I combo
-      document.addEventListener('keydown', event => {
-        if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
-          event.preventDefault();
-        }
-      });
-        // Tangkap elemen navbar
-        var navbar = document.querySelector('.navbar');
+  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('contextmenu', event => event.preventDefault());
+                // Disable F12 key and Ctrl+Shift+I combo
+                document.addEventListener('keydown', event => {
+                    if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
+                        event.preventDefault();
+                    }
+                });
+                // Tangkap elemen navbar
+                var navbar = document.querySelector('.navbar');
 
-        // Tambahkan event listener untuk event scroll
-        window.addEventListener('scroll', function() {
-        // Periksa posisi scroll
-        if (window.scrollY > 50) {
-            // Jika posisi scroll lebih dari 50px, tambahkan kelas navbar-scrolled
-            navbar.classList.add('navbar-scrolled');
-        } else {
-            // Jika tidak, hapus kelas navbar-scrolled
-            navbar.classList.remove('navbar-scrolled');
-        }
-        });
+                // Tambahkan event listener untuk event scroll
+                window.addEventListener('scroll', function() {
+                    // Periksa posisi scroll
+                    if (window.scrollY > 50) {
+                        // Jika posisi scroll lebih dari 50px, tambahkan kelas navbar-scrolled
+                        navbar.classList.add('navbar-scrolled');
+                    } else {
+                        // Jika tidak, hapus kelas navbar-scrolled
+                        navbar.classList.remove('navbar-scrolled');
+                    }
+                });
 
+                // Contact Form Handler
+                const contactForm = document.getElementById('contactForm');
+                const formStatus = document.getElementById('formStatus');
+
+                // Initialize EmailJS (optional - requires setup)
+                // emailjs.init("YOUR_PUBLIC_KEY"); // Uncomment and add your EmailJS public key
+
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('pesan').value;
+                    
+                    // Validate form
+                    if (!name || !email || !message) {
+                        showStatus('Please fill in all fields.', 'error');
+                        return;
+                    }
+                    
+                    // Show loading state
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Method 1: Using EmailJS (requires setup)
+                    /*
+                    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                        from_name: name,
+                        from_email: email,
+                        message: message,
+                        to_email: "akbartampan03@gmail.com"
+                    }).then(function(response) {
+                        showStatus('Message sent successfully! I will get back to you soon.', 'success');
+                        contactForm.reset();
+                    }).catch(function(error) {
+                        showStatus('Failed to send message. Please try again or contact directly.', 'error');
+                    }).finally(function() {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+                    */
+                    
+                    // Method 2: Using mailto (current implementation)
+                    const subject = `Contact from ${name} - Portfolio Website`;
+                    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent from Portfolio Contact Form`;
+                    const mailtoLink = `mailto:akbartampan03@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    
+                    // Open email client
+                    window.location.href = mailtoLink;
+                    
+                    // Show success message
+                    showStatus('Email client opened! Please send the email to complete your message.', 'success');
+                    
+                    // Reset form and button
+                    contactForm.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+
+                function showStatus(message, type) {
+                    formStatus.style.display = 'block';
+                    formStatus.className = `mt-3 alert ${type === 'success' ? 'alert-success' : 'alert-danger'}`;
+                    formStatus.innerHTML = `<strong>${type === 'success' ? 'Success!' : 'Error!'}</strong> ${message}`;
+                    
+                    // Hide message after 7 seconds
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 7000);
+                }
+            });
     </script>
 
 </body>

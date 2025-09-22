@@ -10,6 +10,9 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
       
+      <!-- Font Awesome Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      
       <style>
         nav{
           background-color: black;
@@ -42,11 +45,11 @@
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
           <div class="container">
             <a class="navbar-brand" href="index.html">@james_aurora</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
+              <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                   <a class="nav-link" href="index.html#home">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -77,11 +80,29 @@
 
 <section id="projects" style="background-color: black; padding-bottom:10%;padding-top:5%">
   <div class="container text-light text-center">
-    <div class="row text-center mb-1">
+    <div class="row text-center mb-4">
       <div class="col overflow-hidden text-light">
-        <h1 class="display-4 " style="font-family: 'Montserrat'; text-align: center;">Some of my works</h1>
-        <h2 style="font-family: 'Montserrat'; text-align: center;">Reviewing films</h2>
-        <h2 class="display-4" style="text-align: center; padding-bottom:5%">________________</h2>
+        <h1 class="display-4 " style="font-family: 'Montserrat'; text-align: center;">Complete Film Review Collection</h1>
+        <h2 style="font-family: 'Montserrat'; text-align: center;">Cinema Analysis & Creative Content</h2>
+        <h2 class="display-4" style="text-align: center; padding-bottom:3%">________________</h2>
+        <p class="lead">Exploring the art of storytelling through comprehensive film analysis</p>
+      </div>
+    </div>
+
+    <!-- YouTube Integration -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-8">
+        <div class="card bg-dark border border-danger">
+          <div class="card-body text-center">
+            <i class="fab fa-youtube fa-3x text-danger mb-3"></i>
+            <h5 class="card-title">Full Playlist Available on YouTube</h5>
+            <p class="card-text">Watch all my film reviews and creative content in one place</p>
+            <a href="https://www.youtube.com/watch?v=fDhqkCOkITE&list=PLhdTt68ddXT48eVd_A7K7T2d5pLdgGjhr" 
+               target="_blank" class="btn btn-danger">
+              <i class="fab fa-youtube mr-2"></i>Watch Full Playlist
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   <div class="row justify-content-center">
@@ -210,16 +231,35 @@
           </div>
         </footer>
 
+        <!-- jQuery dan Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-                    <script>
-        document.addEventListener('contextmenu', event => event.preventDefault());
+        <script>
+            document.addEventListener('contextmenu', event => event.preventDefault());
             // Disable F12 key and Ctrl+Shift+I combo
-      document.addEventListener('keydown', event => {
-        if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
-          event.preventDefault();
-        }
-      });
-          </script>
+            document.addEventListener('keydown', event => {
+                if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
+                    event.preventDefault();
+                }
+            });
+
+            // Tangkap elemen navbar
+            var navbar = document.querySelector('.navbar');
+
+            // Tambahkan event listener untuk event scroll
+            window.addEventListener('scroll', function() {
+                // Periksa posisi scroll
+                if (window.scrollY > 50) {
+                    // Jika posisi scroll lebih dari 50px, tambahkan kelas navbar-scrolled
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    // Jika tidak, hapus kelas navbar-scrolled
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            });
+        </script>
 
       </body>
 
