@@ -17,6 +17,52 @@
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .skill-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .github-stats-img {
+      transition: opacity 0.3s ease;
+    }
+
+    .github-stats-img:hover {
+      opacity: 0.9;
+    }
+
+    #fallback-stats-1, #fallback-stats-2 {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .category-card {
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-3px);
+      border-color: #ffffff !important;
+    }
+    
+    video:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+    }
+  </style>
+
   <script>
       function disableClick(){
         document.onclick=function(event){
@@ -653,18 +699,10 @@
         <div class="row mt-4">
           <div class="col-md-6 mb-3">
             <img src="https://github-readme-stats.vercel.app/api?username=James1Aurora&show_icons=true&theme=dark&include_all_commits=true&count_private=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&border_color=ffffff" 
-                 alt="GitHub Stats" class="img-fluid" style="border-radius: 10px;" loading="lazy" onerror="this.style.display='none';">
-          </div>
-          <div class="col-md-6 mb-3">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=James1Aurora&layout=compact&theme=dark&bg_color=000000&text_color=ffffff&title_color=ffffff&border_color=ffffff" 
-                 alt="Top Languages" class="img-fluid" style="border-radius: 10px;" loading="lazy" onerror="this.style.display='none';">
-          </div>
-        </div>
-        
-        <!-- Fallback Stats Display -->
-        <div class="row mt-3" id="fallback-stats">
-          <div class="col-md-6 mb-3">
-            <div class="card bg-dark border border-white">
+                 alt="GitHub Stats" class="img-fluid github-stats-img" style="border-radius: 10px;" loading="lazy" 
+                 onerror="this.style.display='none'; document.getElementById('fallback-stats-1').style.display='block';">
+            <!-- Fallback for first stat -->
+            <div id="fallback-stats-1" class="card bg-dark border border-white" style="display: none;">
               <div class="card-header bg-transparent text-white text-center">
                 <h6><i class="fab fa-github mr-2"></i>GitHub Statistics</h6>
               </div>
@@ -679,11 +717,25 @@
                     <small>Contributions</small>
                   </div>
                 </div>
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <h4 class="text-warning">Active</h4>
+                    <small>Developer</small>
+                  </div>
+                  <div class="col-6">
+                    <h4 class="text-primary">Open Source</h4>
+                    <small>Contributor</small>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <div class="card bg-dark border border-white">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=James1Aurora&layout=compact&theme=dark&bg_color=000000&text_color=ffffff&title_color=ffffff&border_color=ffffff" 
+                 alt="Top Languages" class="img-fluid github-stats-img" style="border-radius: 10px;" loading="lazy" 
+                 onerror="this.style.display='none'; document.getElementById('fallback-stats-2').style.display='block';">
+            <!-- Fallback for second stat -->
+            <div id="fallback-stats-2" class="card bg-dark border border-white" style="display: none;">
               <div class="card-header bg-transparent text-white text-center">
                 <h6><i class="fas fa-code mr-2"></i>Most Used Languages</h6>
               </div>
